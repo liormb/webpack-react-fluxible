@@ -7,8 +7,6 @@
 'use strict';
 
 import React from 'react';
-//import Fluxible from 'fluxible';
-//import AboutStore from 'stores/AboutStore';
 
 class About extends React.Component {
     constructor (props) {
@@ -21,8 +19,17 @@ class About extends React.Component {
     render () {
         return (
             <div>
-                <input type="text" value={this.state.name} onChange={this.onChange} />
                 <h1>Welcome to {this.props.name} About Page</h1>
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="input-group">
+                            <input type="text" className="form-control" placeholder="Search for..." value={this.state.name} onChange={this.onChange} />
+                            <span className="input-group-btn">
+                                <button className="btn btn-default" type="button" onClick={this.submitHandler}>Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
@@ -31,6 +38,11 @@ class About extends React.Component {
         this.setState({
             name: event.target.value
         });
+    }
+
+    submitHandler () {
+        console.log('submit!');
+        debugger;
     }
 }
 
