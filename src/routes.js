@@ -8,12 +8,12 @@
 
 import React from 'react';
 import { Route } from 'react-router';
-import Main from 'components/Main';
-import About from 'components/About';
+import Main from './components/Main';
+import About from './components/About';
 
 const routes = (
     <Route handler={Main}>
-        <Route name='about' handler={About} />
+        <Route name="about" handler={About} />
     </Route>
 );
 

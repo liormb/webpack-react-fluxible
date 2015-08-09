@@ -7,7 +7,7 @@
 'use strict';
 
 import React from 'react';
-import Fluxible from 'fluxible';
+//import Fluxible from 'fluxible';
 //import AboutStore from 'stores/AboutStore';
 
 class About extends React.Component {
@@ -27,9 +27,9 @@ class About extends React.Component {
         );
     }
 
-    onChange = evt => {
+    onChange (event) {
         this.setState({
-            name: evt.target.value
+            name: event.target.value
         });
     }
 }
