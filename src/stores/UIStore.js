@@ -9,19 +9,21 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 
 class UIStore extends BaseStore {
-    constructor (dispatcher) {
+    constructor(dispatcher) {
         super(dispatcher);
         this.model = {
             name: ''
         }
     }
 
-    changeName (payload, action) {
-        console.log('In the store!');
+    changeName(payload, action) {
+        const { name } = payload;
+        console.log('The name has changed to', name);
     }
 }
 
 UIStore.storeName = 'UIStore';
+
 UIStore.handlers = {
     'NAME_CHANGED': 'changeName'
 };

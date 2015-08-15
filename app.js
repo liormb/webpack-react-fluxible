@@ -10,11 +10,10 @@ import Fluxible from 'fluxible';
 import UIStore from './src/stores/UIStore';
 import Routes from './src/components/Routes';
 
-const app = new Fluxible({
-    component: Routes,
-    stores: [
-        UIStore
-    ]
+let app = new Fluxible({
+    component: Routes
 });
+
+app.registerStore(UIStore);
 
 export default app;

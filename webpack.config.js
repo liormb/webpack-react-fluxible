@@ -16,7 +16,7 @@ module.exports = {
     cache: true,
     entry: {
         entry: path.join(srcPath, 'entry.js'),
-        common: ['react', 'react-router', 'fluxible']
+        common: ['react', 'react-router', 'fluxible', 'fluxible-addons-react']
     },
     resolve: {
         root: srcPath,
@@ -24,7 +24,7 @@ module.exports = {
         modulesDirectories: ['node_modules', 'src']
     },
     output: {
-        path: path.join(__dirname, 'c'),
+        path: path.join(__dirname, 'public/c'),
         publicPath: '',
         filename: '[name].js',
         library: ['WebpackReactFluxible', '[name]'],
@@ -48,7 +48,7 @@ module.exports = {
     debug: true,
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        contentBase: './c',
+        contentBase: './public/c',
         historyApiFallback: true
     }
 };

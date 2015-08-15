@@ -8,13 +8,12 @@
 
 import React from 'react';
 import Router from 'react-router';
-import FluxibleComponent from 'fluxible-addons-react/FluxibleComponent';
-import createElement from 'fluxible-addons-react/createElementWithContext';
+import { FluxibleComponent } from 'fluxible-addons-react';
 import app from './../app';
 
-const context = app.createContext();
+const context = window.context = app.createContext();
 
-function RenderApp (context, Handler) {
+Router.run(app.getComponent(), Router.HistoryLocation, (Handler, state) => {
     const Component = React.createFactory(Handler);
 
     React.render(
@@ -22,11 +21,6 @@ function RenderApp (context, Handler) {
             FluxibleComponent,
             { context: context.getComponentContext() },
             Component()
-        ),
-        document.getElementById('content')
+        ), document.getElementById('content')
     );
-}
-
-Router.run(app.getComponent(), Router.HistoryLocation, (Handler, state) => {
-    RenderApp(context, Handler);
 });

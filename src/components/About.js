@@ -7,25 +7,27 @@
 'use strict';
 
 import React from 'react';
+import userActions from './../actions/userActions';
 
 class About extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            name: this.props.name
+            name: ''
         };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     render () {
         return (
             <div>
-                <h1>Welcome to {this.props.name} About Page</h1>
+                <h3>About Page</h3>
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="input-group">
-                            <input type="text" className="form-control" placeholder="Search for..." value={this.state.name} onChange={this.onChange} />
+                            <input type="text" className="form-control" placeholder="Search for..." value={this.state.name} onChange={this.handleChange} />
                             <span className="input-group-btn">
-                                <button className="btn btn-default" type="button" onClick={this.submitHandler}>Go!</button>
+                                <button className="btn btn-default" type="button" onClick={this.onClick.bind(this)}>Go!</button>
                             </span>
                         </div>
                     </div>
@@ -34,15 +36,17 @@ class About extends React.Component {
         );
     }
 
-    onChange (event) {
+    handleChange(event) {
         this.setState({
             name: event.target.value
         });
     }
 
-    submitHandler () {
-        console.log('submit!');
-        debugger;
+    onClick (event) {
+        event.preventDefault();
+        this.props.context.executeAction(userActions.changeName, {
+            name: this.state.name
+        });
     }
 }
 

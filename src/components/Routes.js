@@ -7,13 +7,16 @@
 'use strict';
 
 import React from 'react';
-import { DefaultRoute, Route } from 'react-router';
+import { Route, DefaultRoute } from 'react-router';
+import ViewController from './../controllers/ViewController';
 import Main from './Main';
+import Home from './Home';
 import About from './About';
 
 const Routes = (
-    <Route name="app" path="/" handler={Main}>
+    <Route name="app" path="/" handler={ViewController}>
         <Route name="about" handler={About} />
+        <DefaultRoute name="home" handler={Home} />
     </Route>
 );
 

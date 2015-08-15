@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "webpack --progress --profile --colors",
-    "watch": "webpack-dev-server --hot --inline --progress --colors --port=3000",
+    "start": "webpack-dev-server --hot --inline --progress --colors --port=8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js",
