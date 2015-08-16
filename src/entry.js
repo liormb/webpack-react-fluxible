@@ -8,19 +8,15 @@
 
 import React from 'react';
 import Router from 'react-router';
-import { FluxibleComponent } from 'fluxible-addons-react';
+import { FluxibleComponent, createElementWithContext } from 'fluxible-addons-react';
 import app from './../app';
 
 const context = window.context = app.createContext();
 
 Router.run(app.getComponent(), Router.HistoryLocation, (Handler, state) => {
-    const Component = React.createFactory(Handler);
-
     React.render(
-        React.createElement(
-            FluxibleComponent,
-            { context: context.getComponentContext() },
-            Component()
-        ), document.getElementById('content')
+        React.createElement(Handler, {
+            context: context.getComponentContext()
+        }), document.getElementById('content')
     );
 });

@@ -12,7 +12,7 @@ class Home extends React.Component {
 
     render () {
         return (
-            <h5>Welcome to the site!</h5>
+            <h4>Welcome to the Home Page!</h4>
         );
     }
 }

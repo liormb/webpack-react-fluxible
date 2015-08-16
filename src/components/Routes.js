@@ -15,8 +15,8 @@ import About from './About';
 
 const Routes = (
     <Route name="app" path="/" handler={ViewController}>
-        <Route name="about" handler={About} />
         <DefaultRoute name="home" handler={Home} />
+        <Route name="about" handler={About} />
     </Route>
 );
 

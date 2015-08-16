@@ -45,7 +45,7 @@ class About extends React.Component {
     onClick (event) {
         event.preventDefault();
         this.props.context.executeAction(userActions.changeName, {
-            name: this.state.name
+            name: this.state.name.trim()
         });
     }
 }
